@@ -1,0 +1,21 @@
+
+{% block content %}
+{% if barlist %}
+<h1>Located Breweries</h1>
+<h3>Sunset:{{sunTime}}</h3>
+{% for bars, value in barlist.items %}
+    <h2>{{forloop.counter}}. {{ value.name }}
+        <br>Type of brewery: {{value.brewery_type}}
+        <br>Phone: {{value.phone}}, 
+        Website: 
+        {% if value.website_url %}
+        <a href="value.website_url"> {{value.website_url}}</a>
+        {% else %}
+        None
+        {% endif %}
+    </h2>
+{% endfor %}
+{%else%}
+<h2>No breweries found!</h2>
+    {% endif %}
+{% endblock %}
